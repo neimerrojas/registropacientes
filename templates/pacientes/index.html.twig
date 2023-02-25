@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pacientes index{% endblock %}
+
+{% block body %}
+
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th  colspan="6">Lista de pacientes</th>
+                    
+                </tr>
+            </thead>
+            <thead >
+                <tr>
+                    <th >Id</th>
+                    <th>Nombre</th>
+                    <th>Identificacion</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            {% for paciente in pacientes %}
+                <tr>
+                    <td>{{ paciente.id }}</td>
+                    <td>{{ paciente.nombre }}</td>
+                    <td>{{ paciente.identificacion }}</td>
+                    <td>{{ paciente.telefono }}</td>
+                    <td>{{ paciente.correo }}</td>
+                    <td>
+                        
+                        <a class="bi bi-trash3" href="{{ path('app_pacientes_show', {'id': paciente.id}) }}"></a>  | 
+                        <a class="bi bi-pencil-square" href="{{ path('app_pacientes_edit', {'id': paciente.id}) }}"></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th  colspan="6"> <a class="btn btn-success" href="{{ path('app_pacientes_new') }}">Agregar</a></th>
+                </tr>
+            </thead>
+        </table>
+    </div>>
+   
+{% endblock %}

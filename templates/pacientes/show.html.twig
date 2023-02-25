@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pacientes{% endblock %}
+
+{% block body %}
+ 
+
+<div>
+    <table class="table table-striped">
+        <tbody>
+        <th class="table-primary" colspan="3"><h2>Pacientes</h2></th>
+        </tbody>
+        <tbody>
+            <tr>
+                <th colspan="1">Id:</th>
+                <td colspan="2">{{ paciente.id }}</td>
+            </tr>
+            <tr>
+                <th colspan="1">Nombre</th>
+                <td colspan="2">{{ paciente.nombre }}</td>
+            </tr>
+            <tr>
+                <th colspan="1">Identificacion</th>
+                <td colspan="2">{{ paciente.identificacion }}</td>
+            </tr>
+            <tr>
+                <th colspan="1">Telefono</th>
+                <td colspan="2">{{ paciente.telefono }}</td>
+            </tr>
+            <tr>
+                <th colspan="1">Correo</th>
+                <td colspan="2">{{ paciente.correo }}</td>
+            </tr>
+        </tbody>
+
+        <tbody>
+        <th class="table-primary"><a class="btn btn-primary" href="{{ path('app_pacientes_index') }}">Regresar</a></th>
+        <th class="table-primary" > <a class="btn btn-success" href="{{ path('app_pacientes_edit', {'id': paciente.id}) }}">Editar</a></th>
+        <td class="table-primary" > {{ include('pacientes/_delete_form.html.twig') }}</td>
+        </tbody>
+    </table>
+</div>
+    
+
+   
+
+   
+{% endblock %}
